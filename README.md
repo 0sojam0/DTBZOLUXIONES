@@ -53,22 +53,20 @@ functions:
 _Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
 
 ### Invocation
-
-After successful deployment, you can call the created application via HTTP:
+El controlador listarPlanetasSWAPI lista los objetos traduciendo los nombres del ingles al español endpoint:
 
 ```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
+curl https://qiik57qnf3.execute-api.us-west-2.amazonaws.com/listarPlanetasSWAPI
 ```
 
-Which should result in response similar to the following (removed `input` content for brevity):
+EL CONTROLADOR crearPlanetas guarda la informacion con el formato de SWAPI en DYNAMODB, endpoint:
+```bash
+curl https://qiik57qnf3.execute-api.us-west-2.amazonaws.com/crearPlaneta
+```
 
-```json
-{
-  "message": "Go Serverless v2.0! Your function executed successfully!",
-  "input": {
-    ...
-  }
-}
+El Controlador listaPlanetasDYNAMODB realiza una consulta a la BD listando todos los elementos endpoint:
+```bash
+curl https://qiik57qnf3.execute-api.us-west-2.amazonaws.com/listarPlanetasDynamoDB
 ```
 
 ### Local development
